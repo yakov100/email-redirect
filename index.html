@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,23 @@
             text-align: center;
             margin: 50px;
             background-color: #f4f4f4;
+            direction: rtl;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 25px;
+            color: #555;
         }
         .btn {
             display: inline-block;
@@ -21,20 +38,34 @@
             border-radius: 5px;
             border: none;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         .btn:hover {
             background-color: #0056b3;
         }
     </style>
-    <script>
-        function sendEmail() {
-            window.location.href = "mailto:meratekyomyomi@gmail.com?subject=הצטרפות&body=צרפו%20אותי%20בבקשה";
-        }
-    </script>
 </head>
 <body>
-    <h2>להצטרפות לרשימת התפוצה</h2>
-    <p>לחץ על הכפתור כדי לשלוח מייל:</p>
-    <button class="btn" onclick="sendEmail()">📩 שלח בקשת הצטרפות</button>
+    <div class="container">
+        <h2>הצטרפות לרשימת התפוצה</h2>
+        <p>לחץ על הכפתור כדי לשלוח מייל בקשת הצטרפות:</p>
+        
+        <!-- שימוש בקישור ישיר במקום פונקציית JavaScript -->
+        <a href="mailto:meratekyomyomi@gmail.com?subject=הצטרפות&body=צרפו%20אותי%20בבקשה" class="btn">
+            📩 שלח בקשת הצטרפות
+        </a>
+    </div>
+    
+    <script>
+        // קוד להתאמת הדף למכשירים ניידים
+        document.addEventListener('DOMContentLoaded', function() {
+            const mailtoLink = document.querySelector('.btn');
+            
+            // מוסיף אירוע לחיצה גם באמצעות JavaScript למקרה שה-href לא יעבוד
+            mailtoLink.addEventListener('click', function(e) {
+                window.location.href = this.getAttribute('href');
+            });
+        });
+    </script>
 </body>
 </html>
