@@ -26,10 +26,15 @@
             background-color: #0056b3;
         }
     </style>
+    <script>
+        function sendEmail() {
+            window.location.href = "mailto:meratekyomyomi@gmail.com?subject=הצטרפות&body=צרפו%20אותי%20בבקשה";
+        }
+    </script>
 </head>
 <body>
     <h2>להצטרפות לרשימת התפוצה</h2>
     <p>לחץ על הכפתור כדי לשלוח מייל:</p>
-    <a href="mailto:meratekyomyomi@gmail.com?subject=הצטרפות&body=צרפו%20אותי%20בבקשה" class="btn">📩 שלח בקשת הצטרפות</a>
+    <button class="btn" onclick="sendEmail()">📩 שלח בקשת הצטרפות</button>
 </body>
 </html>
